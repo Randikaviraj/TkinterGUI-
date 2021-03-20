@@ -72,13 +72,31 @@ class Display:
         self.scrollbar.pack(side="right", fill="y")
         
     def deleteEmail(self,btn: tk.Button):
+        self.email_list.remove(btn['text'])
         btn.destroy()
 
         
     def __del__(self):
-        print('Destructor called.')
+        with open("emails.txt", "w") as file:
+            for item in self.email_list:
+                if not item:
+                  continue
+                file.write("%s" % item)
+                file.write(" ")
+             
          
 
-Display(600,600,["randikavirajmax@gmail.com","randikaviraj2max@gmail.com","randikaviraj3max@gmail.com"]).run()
+
+########################################### this is the main code run###################################
+emails=[]
+
+with open("emails.txt", "r") as file:
+    email=file.read()
+    emails=email.split(" ")
+    emails.pop()
+    print(emails)
+      
+    
+Display(600,600,emails).run()
       
     
