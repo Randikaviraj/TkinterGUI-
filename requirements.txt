@@ -1,0 +1,4 @@
+#  pipenv install -r requirements.txt
+# pipenv run Display
+ 
+ Pillow
