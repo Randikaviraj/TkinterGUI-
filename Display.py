@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 from tkinter.constants import HORIZONTAL
 from PIL import Image, ImageTk
 
@@ -72,8 +73,11 @@ class Display:
         self.scrollbar.pack(side="right", fill="y")
         
     def deleteEmail(self,btn: tk.Button):
-        self.email_list.remove(btn['text'])
-        btn.destroy()
+        answer=messagebox.askyesno(message='Are you sure you want to install SuperVirus?',icon='question' ,title='Install')
+        if answer:
+          self.email_list.remove(btn['text'])
+          btn.destroy()
+        
 
         
     def __del__(self):
