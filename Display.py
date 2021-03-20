@@ -73,7 +73,7 @@ class Display:
         self.scrollbar.pack(side="right", fill="y")
         
     def deleteEmail(self,btn: tk.Button):
-        answer=messagebox.askyesno(message='Are you sure you want to install SuperVirus?',icon='question' ,title='Install')
+        answer=messagebox.askyesno(message='Are you sure you want to delete this email?',icon='question' ,title='Install')
         if answer:
           self.email_list.remove(btn['text'])
           btn.destroy()
